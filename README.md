@@ -1,6 +1,6 @@
 # CoppeliaSim ROS2 Bridge
 
-This package automatically scans CoppeliaSim looking from sensors and exposes it on ROS.
+This package automatically scans CoppeliaSim looking for sensors and exposes them on ROS.
 
 WARNING: this is an experimental package
 
