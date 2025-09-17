@@ -25,14 +25,22 @@ cd ~/ros2_ws
 source install/setup.bash
 ```
 
-Open CoppeliaSim, load your scene file and start the ROS sensor nodes:
+Open CoppeliaSim, load your scene file and start the ROS launcher:
 
-### Force Sensors
+```bash
+ros2 launch coppeliasim_bridge coppeliasim_bridge_launch.py
+```
+
+---
+
+Alternativelly you can start each sensor node individually:
+
+#### Force Sensors
 ```bash
 ros2 run coppeliasim_bridge forcesensor
 ```
 
-### ProximitySensors
+#### ProximitySensors
 ```bash
 ros2 run coppeliasim_bridge proximitysensor
 ```
