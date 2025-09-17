@@ -4,7 +4,7 @@ package_name = 'coppeliasim_bridge'
 
 setup(
     name=package_name,
-    version='0.1.1',
+    version='0.2.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'forcesensor = coppeliasim_bridge.forcesensor_publisher:main',
+            'proximitysensor = coppeliasim_bridge.proximitysensor_publisher:main',
         ],
     },
 )
