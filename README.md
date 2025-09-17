@@ -1,12 +1,13 @@
 # CoppeliaSim ROS2 Bridge
 
-This package automatically scans CoppeliaSim looking for sensors and exposes them on ROS.
+This package automatically scans CoppeliaSim looking for sensors and exposes them; on ROS.
 
 WARNING: this is an experimental package
 
 ## Supported sensors
 
-- forcesensor
+- Force Sensor
+- Proximity Sensor
 
 ## Compile
 
@@ -17,13 +18,25 @@ colcon build --packages-select coppeliasim_bridge
 
 ## Run
 
-Open CoppeliaSim, load your scene file, then start the ROS node:
+Prepare the ROS environment
 
 ```bash
 cd ~/ros2_ws
 source install/setup.bash
+```
+
+Open CoppeliaSim, load your scene file and start the ROS sensor nodes:
+
+### Force Sensors
+```bash
 ros2 run coppeliasim_bridge forcesensor
 ```
+
+### ProximitySensors
+```bash
+ros2 run coppeliasim_bridge proximitysensor
+```
+
 
 
 ### Output examples

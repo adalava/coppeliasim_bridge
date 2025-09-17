@@ -5,11 +5,30 @@ class Coppelia():
     def __init__(self):
         client = RemoteAPIClient()
         self.sim = client.require('sim')
-    
+
     def get_type(self, type_str):
-        if type_str == 'forcesensor':
-            return self.sim.sceneobject_forcesensor
-        
+
+        # Possible values
+        #
+        # sim.sceneobject_shape
+        # sim.sceneobject_joint
+        # sim.sceneobject_graph
+        # sim.sceneobject_camera
+        # sim.sceneobject_light
+        # sim.sceneobject_dummy
+        # sim.sceneobject_proximitysensor
+        # sim.sceneobject_octree
+        # sim.sceneobject_pointcloud
+        # sim.sceneobject_visionsensor
+        # sim.sceneobject_forcesensor
+        # sim.sceneobject_script
+
+        match type_str:
+            case 'forcesensor':
+                return self.sim.sceneobject_forcesensor
+            case 'proximitysensor':
+                return self.sim.sceneobject_proximitysensor
+
         return None
 
     def get_objects(self, obj_type):
