@@ -45,10 +45,11 @@ ros2 run coppeliasim_bridge forcesensor
 ros2 run coppeliasim_bridge proximitysensor
 ```
 
+---
 
+## Output examples
 
-### Output examples
-
+#### Launch
 ```bash
 # ros2 launch coppeliasim_bridge coppeliasim_bridge_launch.py 
 [INFO] [launch]: All log files can be found below /root/.ros/log/2025-09-23-13-39-56-341622-fedora-227
@@ -64,6 +65,7 @@ ros2 run coppeliasim_bridge proximitysensor
 [forcesensor-1] [INFO] [1758634797.158890887] [coppeliasim_bridge.forcesensor]: Creating publisher topic "myRobot/bumperSensorFL"
 ```
 
+#### List topics
 
 ```bash
 # ros2 topic list
@@ -73,6 +75,8 @@ ros2 run coppeliasim_bridge proximitysensor
 /parameter_events
 /rosout
 ```
+
+#### Force sensor
 
 ```bash
 # ros2 topic info  /coppeliasim_bridge/myRobot/bumperSensorFL
@@ -91,5 +95,29 @@ torque:
   x: 0.0668506171626216
   y: -0.08524148580638342
   z: 0.3254280060297572
+---
+```
+
+#### Proximity sensor
+```bash
+# ros2 topic info /coppeliasim_bridge/myRobot/proximitySensor
+Type: sensor_msgs/msg/Range
+Publisher count: 1
+Subscription count: 0
+```
+
+```bash
+# ros2 topic echo --once /coppeliasim_bridge/myRobot/proximitySensor
+header:
+  stamp:
+    sec: 1758635260
+    nanosec: 89298767
+  frame_id: ''
+radiation_type: 0
+field_of_view: 0.0
+min_range: 0.0
+max_range: 0.800000011920929
+range: .inf
+variance: 0.0
 ---
 ```
