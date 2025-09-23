@@ -1,13 +1,13 @@
 # CoppeliaSim ROS2 Bridge
 
-This package automatically scans CoppeliaSim looking for sensors and exposes them; on ROS.
+This package automatically scans CoppeliaSim looking for sensors and exposes them on ROS.
 
 WARNING: this is an experimental package
 
-## Supported sensors
+## Currently Supported sensors
 
-- Force Sensor
-- Proximity Sensor
+- Force
+- Proximity
 
 ## Compile
 
@@ -50,31 +50,39 @@ ros2 run coppeliasim_bridge proximitysensor
 ### Output examples
 
 ```bash
-# ros2 run coppeliasim_bridge forcesensor git status
-[INFO] [1757976965.409606383] [forcesensor_publisher]: Connecting to CoppeliaSim...
-[INFO] [1757976965.410039663] [forcesensor_publisher]: Retrieving force sensor objects...
-[INFO] [1757976965.549490506] [forcesensor_publisher]: Creating publisher topic "myRobot/bumperSensorFR"
-[INFO] [1757976965.552000081] [forcesensor_publisher]: Creating publisher topic "myRobot/bumperSensorFL"
+# ros2 launch coppeliasim_bridge coppeliasim_bridge_launch.py 
+[INFO] [launch]: All log files can be found below /root/.ros/log/2025-09-23-13-39-56-341622-fedora-227
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [forcesensor-1]: process started with pid [230]
+[INFO] [proximitysensor-2]: process started with pid [231]
+[forcesensor-1] [INFO] [1758634796.759149464] [coppeliasim_bridge.forcesensor]: Connecting to CoppeliaSim...
+[forcesensor-1] [INFO] [1758634796.759617660] [coppeliasim_bridge.forcesensor]: Retrieving force sensor objects...
+[proximitysensor-2] [INFO] [1758634796.818703494] [coppeliasim_bridge.proximitysensor]: Connecting to CoppeliaSim...
+[proximitysensor-2] [INFO] [1758634796.819072424] [coppeliasim_bridge.proximitysensor]: Retrieving proximity sensor objects...
+[proximitysensor-2] [INFO] [1758634797.143599023] [coppeliasim_bridge.proximitysensor]: Creating publisher topic "myRobot/proximitySensor"
+[forcesensor-1] [INFO] [1758634797.148392851] [coppeliasim_bridge.forcesensor]: Creating publisher topic "myRobot/bumperSensorFR"
+[forcesensor-1] [INFO] [1758634797.158890887] [coppeliasim_bridge.forcesensor]: Creating publisher topic "myRobot/bumperSensorFL"
 ```
 
 
 ```bash
 # ros2 topic list
-/myRobot/bumperSensorFL
-/myRobot/bumperSensorFR
+/coppeliasim_bridge/myRobot/bumperSensorFL
+/coppeliasim_bridge/myRobot/bumperSensorFR
+/coppeliasim_bridge/myRobot/proximitySensor
 /parameter_events
 /rosout
 ```
 
 ```bash
-# ros2 topic info  /myRobot/bumperSensorFL
+# ros2 topic info  /coppeliasim_bridge/myRobot/bumperSensorFL
 Type: geometry_msgs/msg/Wrench
 Publisher count: 1
 Subscription count: 0
 ```
 
 ```bash
-# ros2 topic echo --once /myRobot/bumperSensorFL
+# ros2 topic echo --once /coppeliasim_bridge/myRobot/bumperSensorFL
 force:
   x: 12.466093416038394
   y: -19.495147652595655
