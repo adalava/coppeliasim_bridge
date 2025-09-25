@@ -9,6 +9,18 @@ WARNING: this is an experimental package
 - Force
 - Proximity
 
+## Requirements
+
+This package uses requires the following python package:
+
+- coppeliasim-zmqremoteapi-client
+
+If no installed, you can install with:
+
+```bash
+python3 -m pip install coppeliasim-zmqremoteapi-client --break-system-packages
+```
+
 ## Compile
 
 ```bash
@@ -33,7 +45,7 @@ ros2 launch coppeliasim_bridge coppeliasim_bridge_launch.py
 
 ---
 
-Alternativelly you can start each sensor node individually:
+Alternativelly you can start each sensor node individually
 
 #### Force Sensors
 ```bash
